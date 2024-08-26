@@ -11,6 +11,8 @@ CREATE TABLE IF NOT EXISTS Usuario (
 	PRIMARY KEY(idUser)
 );
 
+INSERT INTO Usuario (nombre, username, correo) VALUES ('Test', 'test', 'da@gmail.com');
+
 CREATE TABLE IF NOT EXISTS TipoMovimiento (
 	idTipoMov INT AUTO_INCREMENT,
 	tipo VARCHAR(20),
@@ -22,13 +24,12 @@ INSERT INTO TipoMovimiento (tipo) VALUES ('Compra');
 
 CREATE TABLE IF NOT EXISTS Bitacora (
 	idBitacora INT NOT NULL AUTO_INCREMENT,
-    idMultimediabitacorabitacora_ibfk_2bitacora_ibfk_1 INT NOT NULL,
+    idMultimedia INT NOT NULL,
 	idTipoMov INT NOT NULL,
-	idUusuarioser INT NULL,
+	idUser INT NULL,
 	username VARCHAR(20),
 	fecha DATE,
 	PRIMARY KEY(idBitacora),
-    FOREIGN KEY(idMultimedia) REFERENCES Multimedia(idMultimedia),
 	FOREIGN KEY(idUser) REFERENCES Usuario(idUser),
 	FOREIGN KEY(idTipoMov) REFERENCES TipoMovimiento(idTipoMov)
 );
