@@ -65,9 +65,6 @@ public class Multimedia {
 	
 	@Column(name = "imagen")
 	private String imagen;
-
-	@OneToOne(mappedBy = "multimedia", fetch = FetchType.EAGER)
-	private Bitacora bitacora;
 	
 	public int getIdMultimedia() {
 		return idMultimedia;
